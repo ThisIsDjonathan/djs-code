@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Full Header Carousel</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="css/style.css" rel="stylesheet">
+	
+	<!-- Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Slab:700,600' rel='stylesheet' type='text/css'>
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Carrosel como header/full page -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicadores (bolinhas) -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+            <!-- Imagem 1 -->
+			<div class="item active">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080');"></div>
+                <div class="carousel-caption">
+                    <h2>Legenda</h2>
+                </div>
+            </div>
+			
+			<!-- Imagem 2 -->
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080');"></div>
+                <div class="carousel-caption">
+                    <h2>Legenda</h2>
+                </div>
+            </div>
+			
+			<!-- Imagem 3 -->
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080');"></div>
+                <div class="carousel-caption">
+                    <h2>Legenda</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles do Carrosel -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- Conteúdo da Página -->
+    <div class="container">
+
+        <div>
+            <h1 align="center" style="padding-top: 10%">Ofertas</h1>
+			
+			<h2 align="center" style="padding-top: 1%">Todos os dias</h2>
+        </div>
+
+		<!-- Colunas 01 -->
+		<div class="row">
+		<!-- Coluna 1 -->
+			<div class="col-sm-4" style="border-style: solid; height: 500px;">
+				<div class="container">
+					<h1>Hello World</h1>
+				</div>
+				
+				<div class="hoverzoom" style="width: 100%">
+					<img src="http://static.wixstatic.com/media/f62f15_adaecc5dd81a7d33806da39a6ffe76f1.jpg/v1/fill/w_400,h_270,al_c,q_80,usm_0.66_1.00_0.01/f62f15_adaecc5dd81a7d33806da39a6ffe76f1.jpg"/>
+				</div>
+			</div>
+			
+			<!-- Coluna 2 -->
+			<div class="col-sm-4" style="border-style: solid; height: 500px;">
+				<h4 style="font-family: 'Josefin Slab Bold 700', serif; font-size: 22px; position: relative; left: 25;">
+					Título Açaí
+				</h4>
+				
+				<div class="container" style="position: absolute; bottom: 50%;">
+					
+					
+					<div>
+						<h3 style="font-family: 'Merriweather', serif; color: pink; font-size: 30px; position: relative; left: 5%">Preço R$13,00</h3>
+						<p style="font-family: 'Josefin Slab Bold 700', serif; font-size: 18px;">
+							  Descrição Lorem ipsum dolor sit amet, 
+						</br> consetetur sadipscing elitr, 
+						</br> sed diam nonumy eirmod tempor invidunt 
+						</br> ut labore et dolore magna aliquyam erat.</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Coluna 3 -->
+			<div class="col-sm-4" style="border-style: solid; height: 500px; background-color: #EAECF1">
+				<div class="container">
+					<h1>Hello World</h1>
+				</div>
+				
+				<div class="hoverzoom" style="position: absolute; top: 0%;">
+					<img src="http://www.mundimascotabr.com/images/anuncios/270920151443350816_1.jpg"/>
+				</div>
+			</div>
+			
+			
+
+		</div>
+
+
+
+
+        
+
+
+
+    </div>
+    <!-- /.container -->
+	
+	<!-- Footer -->
+    <footer class="footer">
+        <div class="row">
+		
+        </div>
+    </footer>
+		
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>	
+	
+	
+    <!-- Ativar alteração automática do Carrousel -->
+    <script>
+    $('.carousel').carousel(
+    {
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
+</html>
