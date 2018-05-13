@@ -1,16 +1,13 @@
 
 // Configurations params
-var antsQty = 1;
-var sugarQty = 1;
+var antsQty = 50;
+var sugarQty = 8;
 var homeSize = 100;
-var populationSize = 1;
 
 // Vars
 var ants = new Array();
 var sugars = new Array();
 var home;
-
-var ga = new GeneticAlgorithm();
 
 function setup() {
 	createCanvas(800,600);
@@ -31,8 +28,6 @@ function setup() {
 		sugars.push(new Sugar(random(40, 70), random(width), random(height)));
 	}
 
-	// Create population
-	ga.population.initPopulation(populationSize);
 }
 
 function draw() {
