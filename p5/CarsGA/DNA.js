@@ -7,8 +7,7 @@ class DNA {
     if(genes) {
       this.genes = genes;
     } else {
-      this.genes = [];
-      this.initialize();
+        this.initialize();
     }
   }
 
@@ -16,22 +15,31 @@ class DNA {
    * Each gene it's a random direction
    */
   initialize() {
+    this.genes = [];
     for(let i = 0; i < maxLifeCycle; i++) {
+      // Gives random vectors
       this.genes[i] = p5.Vector.random2D();
+      
+      // Sets maximum force of vector to be applied to a car
+      this.genes[i].setMag(0.2);
     }
   }
 
+  /**
+   * 
+   */
   crossover(partner) {
     let newGenes = [];
-    let mid = floor(this.genes.length / 2);
+    let mid = floor(random(this.genes.length));
     for(let i = 0; i < this.genes.length; i++) {
       if(i > mid) {
-        newGenes = this.genes[i];
+        newGenes[i] = this.genes[i];
       }
       else {
-        newGenes = partner[i];
+        newGenes[i] = partner[i];
       }
     }
+
     return new DNA(newGenes);
   }
 }

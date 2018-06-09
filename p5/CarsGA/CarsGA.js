@@ -1,10 +1,9 @@
-var objective;
 var population;
-var maxLifeCycle = 250;
+var maxLifeCycle = 200;
 var count = 0;
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(400, 300);
   objective = new objective();
   population = new Population();
 }
@@ -14,7 +13,6 @@ function draw() {
   background(50);
   objective.show();
   population.run();
-  population.evaluate();
   count++;
 
   if(count == maxLifeCycle) {

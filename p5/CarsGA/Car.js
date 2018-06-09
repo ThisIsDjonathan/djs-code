@@ -7,28 +7,36 @@ class Car {
     }
 
     this.pos = createVector(width / 2, height);
-    this.vel = p5.Vector.random2D();
+    this.vel = createVector();
     this.acc = createVector();
     this.fitness = 0;
     this.crashed = false;
     this.completed = false;
   }
 
+  /**
+   * 
+   */
   update() {
     // Check if car hit the objective
-    if (dist(this.pos.x, this.pos.y, objective.pos.x, objective.pos.y) < 1) {
+    if (dist(this.pos.x, this.pos.y, objective.pos.x, objective.pos.y) < 10) {
       this.completed = true;
+      this.pos = objective.copy();
     }
     // Check if car has hit border
     else if ((this.pos.x > width || this.pos.x < 0) || (this.pos.y > height || this.pos.y < 0)) {
       this.crashed = true;
     // Car will move just if it's not crashed or completed
-    } else {
+    } 
+
+    this.applyForce(this.dna.genes[count]);
+
+    if(!this.crashed && !this.completed) {
       // A gene it's a direction. We'll apply a force to car know which direction to go.
-      this.applyForce(this.dna.genes[count]);
       this.vel.add(this.acc);
       this.pos.add(this.vel);
       this.acc.mult(0);
+      this.vel.limit(4);
     }
   }
 

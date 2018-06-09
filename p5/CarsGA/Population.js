@@ -2,11 +2,14 @@ class Population {
   constructor() {
     this.cars = [];
     this.parents = [];
-    this.popSize = 10;
-    this.createPop();
+    this.popSize = 25;
+    this.initialize();
   }
 
-  createPop() {
+  /**
+   * 
+   */
+  initialize() {
     for(let i = 0; i < this.popSize; i++) {
       this.cars[i] = new Car();
     }
@@ -40,8 +43,13 @@ class Population {
         this.parents.push(this.cars[i]);
       }
     }
+
+    console.log(bestFitness);
   }
 
+  /**
+   * 
+   */
   selection() {
     let newCars = [];
     for(let i = 0; i < this.cars.length; i++) {
@@ -54,7 +62,9 @@ class Population {
     this.cars = newCars;
   }
 
-
+  /**
+   * 
+   */
   run() {
     // Update and show each car on population
     this.cars.forEach(function(car) {
