@@ -1,4 +1,13 @@
+/**
+ * Car it's a chromossome of population. 
+ */
 class Car {
+  /**
+   * Constructor function. If a DNA it passed, car's DNA will be this DNA.
+   * Else a new random DNA will be created to car.
+   * 
+   * Car start with fitness = 0, not crashed and not completed.
+   */
   constructor(dna) {
     if(dna) {
       this.dna = dna;
@@ -15,22 +24,23 @@ class Car {
   }
 
   /**
-   * 
+   * For each frame, verify if car crash or complete objective.
+   * If it has crashed or completed, stop. Else apply force to continue looking for objective.
    */
   update() {
     // Check if car hit the objective
     if (dist(this.pos.x, this.pos.y, objective.pos.x, objective.pos.y) < 10) {
       this.completed = true;
-      this.pos = objective.copy();
-    }
+      this.pos = objective.pos.copy();
+    }  
     // Check if car has hit border
     else if ((this.pos.x > width || this.pos.x < 0) || (this.pos.y > height || this.pos.y < 0)) {
       this.crashed = true;
-    // Car will move just if it's not crashed or completed
     } 
-
+  
     this.applyForce(this.dna.genes[count]);
 
+    // Car will move just if it's not crashed or completed
     if(!this.crashed && !this.completed) {
       // A gene it's a direction. We'll apply a force to car know which direction to go.
       this.vel.add(this.acc);
@@ -48,7 +58,7 @@ class Car {
   }
 
   /**
-   *
+   * Fitness function verify best cars on each generation.
    */
   calcFitness() {
     // Calculate distance between car and objective/target.
@@ -69,9 +79,13 @@ class Car {
     }
   }
 
+  /**
+   * Show car.
+   */
   show() {
     push();
     noStroke();
+    fill(255, 255, 255, 200);
     translate(this.pos.x, this.pos.y);
     rotate(this.vel.heading());
     rectMode(CENTER);
