@@ -17,6 +17,7 @@ let genP, actualCompletedP, maxCompletedP;
 let maxCompleted = 0;
 let completedCars = 0;
 let bestFitnessToShow = 0;
+let walls = [];
 
 /**
  * Create a canvas, objective and a new population. 
@@ -64,15 +65,22 @@ function draw() {
     // Select best cars and make a new generation from they
     population.selection();
   }
+
+  for(let i = 0; i < walls.length; i++) {
+    stroke(255);  
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
+
 }
 
 /**
- * Click on canvas to change objective position.
+ * Double click on canvas will change objective position. 
  */
-function mousePressed() {
+function doubleClicked () {
   this.objective.pos.x = mouseX;
   this.objective.pos.y = mouseY;
 }
+
 
 
 /**
@@ -88,3 +96,4 @@ function Objective() {
     pop();
   };
 }
+
