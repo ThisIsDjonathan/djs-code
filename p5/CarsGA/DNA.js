@@ -9,6 +9,8 @@ class DNA {
     } else {
         this.initialize();
     }
+
+    this.mutant = false;
   }
 
   /**
@@ -52,12 +54,14 @@ class DNA {
    * Mutation consist in set a new direction to gene.
    */
   mutation() {
+      this.mutant = false;
       for (let i = 0; i < this.genes.length; i++) {
         let mutationFlag = random(1) < MUTATION_PROB_PERC ? true : false; 
         if (mutationFlag) {
           this.genes[i] = p5.Vector.random2D();
           this.genes[i].setMag(0.2);
-      }
+          this.mutant = true;
+        }
     }
   }
 }

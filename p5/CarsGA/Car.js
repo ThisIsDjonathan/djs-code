@@ -21,6 +21,8 @@ class Car {
     this.fitness = 0;
     this.crashed = false;
     this.completed = false;
+    this.color = {r: 255, g: 255, b: 255, a: 200};
+    this.pathSize = 0;
   }
 
   /**
@@ -37,7 +39,10 @@ class Car {
     else if ((this.pos.x > width || this.pos.x < 0) || (this.pos.y > height || this.pos.y < 0)) {
       this.crashed = true;
     } 
-  
+
+    let oldX = this.pos.x;
+    let oldY = this.pos.y;
+
     this.applyForce(this.dna.genes[count]);
 
     // Car will move just if it's not crashed or completed
@@ -48,6 +53,8 @@ class Car {
       this.acc.mult(0);
       this.vel.limit(4);
     }
+
+    this.pathSize += dist(oldX, oldY, this.pos.x, this.pos.y);
   }
 
   /**
@@ -64,10 +71,14 @@ class Car {
     // Calculate distance between car and objective/target.
     let d = dist(this.pos.x, this.pos.y, objective.pos.x, objective.pos.y);
 
+    d -= this.pathSize - shortPath;
+
     // A lower distance it's a better fitness, so map the distance to help to normalize it.
     // Map function will get d value that can be a range from 0 to width and re-map to a new range
     // That can be width to zero to invert it.
     this.fitness = map(d, 0, width, width, 0);
+
+    console.log("fitness: " + this.fitness +  " d: " + d);
 
     // If car already it's completed (found the objective) increase fitness. This is a good path!
     if (this.completed) {
@@ -85,7 +96,7 @@ class Car {
   show() {
     push();
     noStroke();
-    fill(255, 255, 255, 200);
+    fill(this.color.r, this.color.g, this.color.b, this.color.a);
     translate(this.pos.x, this.pos.y);
     rotate(this.vel.heading());
     rectMode(CENTER);

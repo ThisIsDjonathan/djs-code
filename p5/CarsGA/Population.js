@@ -68,7 +68,7 @@ class Population {
       let parentA = random(this.parents).dna;
       let parentB = random(this.parents).dna;
       
-      // Create child
+      // Create child DNA
       let child = parentA.crossover(parentB);
       
       // Mutade child

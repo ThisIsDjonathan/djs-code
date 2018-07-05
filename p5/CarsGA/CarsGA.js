@@ -18,6 +18,8 @@ let maxCompleted = 0;
 let completedCars = 0;
 let bestFitnessToShow = 0;
 let walls = [];
+let shortPath;
+let iniPos;
 
 /**
  * Create a canvas, objective and a new population. 
@@ -29,6 +31,8 @@ function setup() {
   genP = createP();
   actualCompletedP = createP();
   maxCompletedP = createP();
+  iniPos = createVector(width / 2, height);
+  shortPath = dist(iniPos.x, iniPos.y, this.objective.pos.x, this.objective.pos.y);
 }
 
 function draw() {
