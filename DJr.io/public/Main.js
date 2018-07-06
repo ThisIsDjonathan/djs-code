@@ -16,17 +16,18 @@ function setup() {
 	socket = io.connect("http://localhost:443/");
 
 	// Send data 
-	let playerData = {
+	let data = {
 		x: me.pos.x,
 		y: me.pos.y,
-		r: me.r
+		r: me.r,
+		foods: foods
 	};
 	  
-	socket.emit('start', playerData);
+	// Start game creating player on server
+	socket.emit('start', data);
 
+	// Receive data from server
 	socket.on('heartbeat', (data) => {
-		console.log(data);
-		
 		players = data;
 	});
 
@@ -63,12 +64,12 @@ function draw() {
 		}
 	}
 
-	let data = {
+	// Update my postion on server
+	socket.emit('update', {
 		x: me.pos.x,
 		y: me.pos.y,
 		r: me.r
-	  };
-	  socket.emit('update', data);
+	});
 	
 	
 }

@@ -1,8 +1,15 @@
 class Player {
-    constructor(pos) {
-        this.r = 25;
+    constructor(id, pos, r) {
         this.color = [];
         this.getNewColor();
+
+        if(r)
+            this.r = r;
+        else
+            this.r = 25;
+        
+        if(id) 
+            this.id = id;
         
         if(pos) 
             this.pos = createVector(pos.x, pos.y);

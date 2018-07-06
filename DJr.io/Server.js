@@ -8,11 +8,12 @@ class Player {
   }
 }
 
+let foods = [];
 
 // Create players array
 let players = [];
 
-// Create the app
+// Create express app
 let express = require('express');
 let app = express();
 
@@ -30,21 +31,32 @@ app.use(express.static('public'));
 let io = require('socket.io').listen(server);
 setInterval(heartbeat, 30);
 
+// This will send players array to all clients
 function heartbeat() {
   io.sockets.emit('heartbeat', players);
 }
 
-// On new connection
-io.sockets.on('connection',
-  function(socket) {
+function onFirstConnection(socket) {
+  console.log("First connection!");
+  console.log();
+  io.removeListener('connection', onFirstConnection);
+
+}
+
+io.sockets.on('connection', onFirstConnection);
+
+// Connection management
+io.sockets.on('connection', (socket) => {
     console.log("New client: " + socket.id);
 
-    // Start
+    // When start create a new player with data sended
     socket.on('start', (data) => {
+        //let pos = {x: data.x, y: data.y}
         players.push(new Player(socket.id, data.x, data.y, data.r));
       }
     );
 
+    // Update player position
     socket.on('update', (data) => {
       let player;
       for (var i = 0; i < players.length; i++) {

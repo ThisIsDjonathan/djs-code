@@ -1,6 +1,7 @@
+
 class Food {
     constructor() {
-        this.pos = createVector(random(-width), random(height*2));
+        this.pos = createVector((random(-width), random(width)), (random(height), random(height*2)));
         this.r = 10;
     }
 
