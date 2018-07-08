@@ -8,9 +8,16 @@ class Player {
   }
 }
 
-let foods = [];
+class Food {
+  constructor() {
+      this.pos = {x: Math.floor((Math.random() * -1600) + 1600*2)
+        , y: Math.floor((Math.random() * -1600) + 1600*2)};
+      this.r = 10;
+  }
+}
 
-// Create players array
+// Create arrays to foods and players
+let foods = [];
 let players = [];
 
 // Create express app
@@ -31,32 +38,28 @@ app.use(express.static('public'));
 let io = require('socket.io').listen(server);
 setInterval(heartbeat, 30);
 
+// Create initial foods
+for(let i = 0; i < 50; i++) {
+  foods[i] = new Food();
+}
+
 // This will send players array to all clients
 function heartbeat() {
-  io.sockets.emit('heartbeat', players);
+  let data = {players: players, foods: foods};
+  io.sockets.emit('heartbeat', data);
 }
-
-function onFirstConnection(socket) {
-  console.log("First connection!");
-  console.log();
-  io.removeListener('connection', onFirstConnection);
-
-}
-
-io.sockets.on('connection', onFirstConnection);
 
 // Connection management
 io.sockets.on('connection', (socket) => {
     console.log("New client: " + socket.id);
 
-    // When start create a new player with data sended
+    // When start create a new player with received data
     socket.on('start', (data) => {
-        //let pos = {x: data.x, y: data.y}
         players.push(new Player(socket.id, data.x, data.y, data.r));
       }
     );
 
-    // Update player position
+    // Update player information
     socket.on('update', (data) => {
       let player;
       for (var i = 0; i < players.length; i++) {
@@ -70,6 +73,13 @@ io.sockets.on('connection', (socket) => {
         player.y = data.y;
         player.r = data.r;
       }
+    });
+
+    // When player eat some food, it will disapear from map
+    socket.on('eatFood', (food) => {
+      console.log("comeu: " + food);
+      foods.splice(food, 1);
+      //foods[food] = new Food();
     });
 
 });

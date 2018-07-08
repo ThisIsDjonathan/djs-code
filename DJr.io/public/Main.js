@@ -3,32 +3,34 @@ let foods = [];
 let players = [];
 let actualScale = 10;
 let newScale;
+let eatedFoods = [];
 
 function setup() {
 	createCanvas(800, 600);
+
+	// Create player
 	me = new Player(width/2, height/2);
 
-	for(let i = 0; i < 10; i++) {
-		foods[i] = new Food();
-	}
+	// Create initial food
+	foods.push(new Food());
 	
 	// Conect to the server
 	socket = io.connect("http://localhost:443/");
 
-	// Send data 
+	// Set data to sent to server
 	let data = {
 		x: me.pos.x,
 		y: me.pos.y,
 		r: me.r,
-		foods: foods
 	};
 	  
-	// Start game creating player on server
+	// Send data to server
 	socket.emit('start', data);
 
 	// Receive data from server
 	socket.on('heartbeat', (data) => {
-		players = data;
+		players = data.players;
+		foods = data.foods;
 	});
 
 }
@@ -50,13 +52,19 @@ function draw() {
 	me.show();
 	me.update();
 
+	// Show all foods and check if eat it
 	foods.reduceRight(function(acc, item, index, object) {
-		item.show();
+		fill(255);
+        noStroke();
+		ellipse(item.pos.x, item.pos.y, item.r*2, item.r*2);
+		
+		// When eat food, send information to server
 		if(me.eats(item)) {
-			object.splice(index, 1);
+			socket.emit('eatFood', index);
 		}
 	});
 
+	// Show players
 	for(let i = players.length - 1; i >= 0; i--) {
 		if(players[i].id != socket.id) {
 			fill(255);
@@ -64,11 +72,12 @@ function draw() {
 		}
 	}
 
-	// Update my postion on server
+	// Update postion on server
 	socket.emit('update', {
 		x: me.pos.x,
 		y: me.pos.y,
-		r: me.r
+		r: me.r,
+		eatedFoods: eatedFoods,
 	});
 	
 	

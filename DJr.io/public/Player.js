@@ -2,11 +2,12 @@ class Player {
     constructor(id, pos, r) {
         this.color = [];
         this.getNewColor();
+        this.eatedFoods = 0;
 
         if(r)
             this.r = r;
         else
-            this.r = 25;
+            this.r = 125;
         
         if(id) 
             this.id = id;
@@ -39,8 +40,10 @@ class Player {
      * 
      */
     eats(object) {
-        if(p5.Vector.dist(this.pos, object.pos) < this.r + object.r) {
-            this.r += object.r;
+        let d = dist(object.pos.x, object.pos.y, this.pos.x, this.pos.y);
+        if(d < this.r + object.r) {
+            this.r += object.r - (this.eatedFoods / 10);
+            this.eatedFoods++;
             return true;
         } else {
             return false;
