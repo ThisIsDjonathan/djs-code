@@ -5,7 +5,7 @@
  * Run with a Python3 server: 
  * cd to project's folder and python -m http.server
  */
-
+ 
 // Params
 let MAPBOX_TOKEN = 'pk.eyJ1Ijoib2Rqb25hdGhhbmtyYXVzZSIsImEiOiJjampvdndzOGcwNTN1M3ZwMHlnMHY0MWppIn0.hzoLpCR-_bD-5gQxF3-1ag'
 let MAP_BASE = 'https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/'
