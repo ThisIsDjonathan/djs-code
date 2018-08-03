@@ -1,5 +1,6 @@
 class Astro {
-    constructor (position, texture, radius, angle, speed) {
+    constructor (name, position, texture, radius, angle, speed, astros, rotationVector) {
+        this.name = name;
         this.position = position;
         this.diameter = radius * 2;
         this.circumference = this.diameter * PI;
@@ -8,29 +9,34 @@ class Astro {
         this.speed = speed;
         this.scl = 10;
         this.radius = radius * this.scl;
+        this.astros = astros;
 
-        // If the astro it's on center (its the sun) does not cross to rotate
-        if(this.position.x == 0 && this.position.y == 0) {
-            this.rotationVector = createVector(10, this.angle * this.speed, 23);
-        } else {
-            this.rotationVector = this.position.cross(createVector(1, 0, 1));
-        }
+        this.rotationVector = this.position.cross(rotationVector);
     }
 
     show() {
+
         push();
+        for(let i = 0; i < this.astros.length; i++) {
+            rotate(this.angle, this.rotationVector);
+        }
+
+        noStroke();
         texture(this.texture);
         translate(this.position.x, this.position.y);
-        rotate(this.angle * this.speed, this.rotationVector);
+        this.orbit();
         sphere(this.radius);
         pop();
-
-        stroke(255,0,0);
-        strokeWeight(4);
-        line(0, 0, 0, this.position.x, this.position.y, this.position.z);
-        line(0, 0, 0, this.rotationVector.x, this.rotationVector.y, this.rotationVector.z);
-        
-        this.angle += this.speed;
-
     }
+
+    orbit() {
+        this.angle += this.speed;
+        rotate(this.angle);
+
+        for(let i = 0; i < this.astros.length; i++) {
+            this.astros[i].orbit();
+        }
+    }
+
+
 }
