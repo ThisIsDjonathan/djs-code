@@ -4,9 +4,13 @@ class GameObject {
         this.position = sprite.position;
         this.speed = speed ? speed : 0;
         this.animation = sprite.animation;
+        this.isVisible = true;
     }
 
     show() {
-        drawSprite(this.sprite);
+        if(this.isVisible)
+            drawSprite(this.sprite);
     }
+
+   
 }

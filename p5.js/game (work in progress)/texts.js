@@ -1,0 +1,1 @@
+let level1text1 = "Ajude a Palu a fazer novos amigos no facebook...";

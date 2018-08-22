@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Questão 10</title>
+    </h:head>
+    <h:body>
+        <h:link outcome="/index" value="Voltar"/>
+        <h:dataTable id="questao10" value="#{questoesController.lancamentosAcimaDaMedia}" var="item">
+            <h:outputText>
+               10. Fazer uma consulta para somar o total dos lançamentos, cujo a média dos itens foi maior ou igual à R$ 100,00.
+            </h:outputText>
+            
+            <h:column>
+                <f:facet name="header">Observação dos lançamentos</f:facet>
+                <h:outputLabel value="#{item.observacao}" />
+                <h:outputLabel value="#{questoesController.retorno}" />
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>

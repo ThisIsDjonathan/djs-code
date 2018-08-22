@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Interseção</title>
+    </h:head>
+    
+    <h:body>
+        <h1>Interseção</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                <p:outputLabel value="Intervalo 1: "/>
+                <p:inputNumber id="intervalo11" value="#{questoesController.intervalo1valor1}"/>
+                <p:inputNumber id="intervalo12" value="#{questoesController.intervalo1valor2}"/>
+                
+                <p:outputLabel value="Intervalo 2: "/>
+                <p:inputNumber id="intervalo21" value="#{questoesController.intervalo2valor1}"/>
+                <p:inputNumber id="intervalo22" value="#{questoesController.intervalo2valor2}"/>
+            </h:panelGrid>
+
+            <br/><br/>
+            <p:outputLabel id="retornoIntersecao" value="Resultado: #{questoesController.retornoIntersecao}"/>
+            <br/><br/>
+            
+            <p:commandButton value="Verificar Interseção" action="#{questoesController.verIntersecao()}" update="retornoIntersecao"/>
+            <p:commandButton value="Início" action="/index"/>
+        </h:form>
+    </h:body>
+</html>

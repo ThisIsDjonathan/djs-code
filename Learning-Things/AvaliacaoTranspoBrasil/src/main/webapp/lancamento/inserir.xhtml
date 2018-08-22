@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Inserir Lançamento</title>
+    </h:head>
+
+    <h:body>
+        <h1>Inserir Lançamento</h1>
+        <h:form id="form">
+            <h:panelGrid columns="2">
+                <p:outputLabel for="dt_inicial" value="Data Inicial: "/>
+                <p:inputMask id="dt_inicial" mask="99/99/9999" value="#{lancamentoController.dtIni}"/>
+
+                <p:outputLabel for="dt_fim" value="Data Final: "/>
+                <p:inputMask id="dt_fim" mask="99-99-9999" value="#{lancamentoController.dtFim}"/>
+
+                <p:outputLabel for="observacao" value="Observação: "/>
+                <p:inputTextarea id="observacao" value="#{lancamentoController.selected.observacao}"/>
+
+                <p:outputLabel for="valor" value="Valor Total: "/>
+                <p:outputLabel id="valor" value="#{lancamentoController.selected.vl_total}"/>
+
+            </h:panelGrid>
+
+            <br/>
+
+            <p:commandButton value="Inserir" action="#{lancamentoController.insert()}" rendered="true">
+                <f:ajax render="form" resetValues="true"/>
+            </p:commandButton>
+            <p:commandButton value="Início" action="/index"/>
+            
+            <br/>
+            <p:outputLabel id="retornoLancamento" value="#{lancamentoController.retornoLancamento}"/>
+
+
+            <br/><br/>
+
+            <h:panelGrid columns="3">
+                <h:dataTable id="listaItem" value="#{itemController.items}" var="item">
+                    <h:column>
+                        <f:facet name="header">Descrição</f:facet>
+                        <h:outputLabel value="#{item.descricao}" />
+                    </h:column>
+
+                    <h:column> <h:outputLabel value="&nbsp;&nbsp;&nbsp;" /> </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Valor</f:facet>
+                        <h:outputLabel value="#{item.valor}" />
+                    </h:column>
+
+                    <p:column headerText="Add">
+                        <h:commandButton value="Adicionar Item" action="#{lancamentoController.addItem(item)}" />
+                    </p:column>
+                </h:dataTable>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

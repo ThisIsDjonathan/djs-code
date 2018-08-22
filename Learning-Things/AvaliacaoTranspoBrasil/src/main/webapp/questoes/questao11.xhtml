@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Questão 11</title>
+    </h:head>
+    <h:body>
+        <h:link outcome="/index" value="Voltar"/>
+        <h:outputText>
+            11. Fazer uma consulta para trazer os 10 lançamentos que possuam o maior valor de itens e tenham a descrição começando com a letra A.
+                Sendo que só devem mostrar lançamentos no qual o somatório desses itens sejam maiores que R$ 50,00.
+        </h:outputText>
+
+        <h:dataTable id="questao11" value="#{questoesController.maioresLancamentos}" var="item">
+            <h:column>
+                <f:facet name="header">Observação dos lançamentos</f:facet>
+                <h:outputLabel value="#{item.observacao}" />
+                 <h:outputLabel value="#{questoesController.retorno}" />
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>

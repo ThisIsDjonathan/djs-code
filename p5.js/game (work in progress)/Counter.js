@@ -1,9 +1,11 @@
 class Counter {
-    constructor(target) {
+    constructor(target, stepAction, doneAction) {
         this.target = target;
+        this.doneAction = doneAction;
+        this.stepAction = stepAction;
         this.time = 0;
         this.steps = 1;
-        this.next = 100;
+        this.next = 10;
         this.running = false;
         this.done = false;
     }
@@ -18,11 +20,13 @@ class Counter {
             if(this.time >= this.next) {
                 if(this.steps <= this.target) {
                     console.log("STEP " + this.steps);
+                    this.stepAction();
                     this.next = this.time + floor(frameRate() + (frameRate() * 0.6));
                     this.steps++;
                 } else {
                     if(!this.done) {
                         console.log("DONE");
+                        this.doneAction();
                         this.done = true;
                         this.stop;
                     }
@@ -40,9 +44,10 @@ class Counter {
 
     restart() {
         this.time = 0;
+        this.steps = 1;
         this.next = 100;
-        this.steps = 0;
-        this.running = true;
+        this.running = false;
+        this.done = false;
     }
 
     setTarget(target) {
