@@ -1,8 +1,8 @@
 class Beacon {
-  constructor (id, pos, r, color) {
+  constructor (id, pos, color) {
     this.id = id
     this.pos = pos
-    this.r = r
+    this.r = 5
     this.color = color
   }
 
@@ -11,6 +11,6 @@ class Beacon {
     noStroke()
     fill(beacon.color)
     ellipse(beacon.pos.x, beacon.pos.y, beacon.r * 10)
-    pop();
+    pop()
   }
 }

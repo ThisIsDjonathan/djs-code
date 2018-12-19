@@ -9,7 +9,7 @@ public class ResourceModule : NancyModule
 {
 	public ResourceModule() : base("/products")
 	{
-        // Faz a requisição em 'host/products/list' 
+        // Faz a requisição em 'host/products/list' e retorna a lista de produtos
         Get["/list"] = parameters =>
         {
             return "Lista de produtos";

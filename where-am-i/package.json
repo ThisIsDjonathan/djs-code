@@ -1,0 +1,14 @@
+{
+  "name": "where-am-i",
+  "version": "1.0.0",
+  "description": "Where am I?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Djonathan Krause",
+  "license": "ISC",
+  "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.4.1"
+  }
+}
