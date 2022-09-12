@@ -1,98 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Code For Fun!</title>
-	
-	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-  </head>
+	<head>
+		<title>Code For Fun!</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</head>
   
-  <body>
-    <div class="section gray">
+	<body>
       <div class="container">
-        <div class="gallery row">
-          
-			<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-				<a href="p5.js\IsPaluShaking\index.html"> 
-					<img class="responsive-img" src="p5.js\IsPaluShaking\demo.jpg">
-					<span>Is Palu Shaking?</span>				
-				</a>
+        
+		<div class="row">
+			<div class="col-sm" style="margin-top: 5%;">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="p5.js\monte-carlo-integration\demo.png">
+					<div class="card-body">
+						<h5 class="card-title">Monte Carlo Integration</h5>
+						<p class="card-text"> <a href="https://en.wikipedia.org/wiki/Monte_Carlo_integration" target="_blank">Monte Carlo Integration PI approximation</a> </p>
+						<a href="./p5.js/monte-carlo-integration/MonteCarloIntegration.html" target="_blank" class="btn btn-primary">Run it!</a>
+					</div>
+				</div>
 			</div>
 
-			<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-				<a href="p5.js\Ants\index.html"> 
-					<img class="responsive-img" src="p5.js\Ants\demo.jpg">
-					<span>Ants</span>				
-				</a>
+			<div class="col-sm" style="margin-top: 5%;">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="p5.js\trilateration\demo.png">
+					<div class="card-body">
+						<h5 class="card-title">Trilateration Simulation</h5>
+						<p class="card-text"> <a href="http://dsc.inf.furb.br/tcc/index.php?cd=10&tcc=1964" target="_blank">Trilateration simulation used and explained in this article</a> </p>
+						<a href="./p5.js/trilateration/index.html" target="_blank" class="btn btn-primary">Run it!</a>
+					</div>
+				</div>
 			</div>
-			
-			<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-				<a href="p5.js\CarsGA\index.html"> 
-					<img class="responsive-img" src="p5.js\CarsGA\demo.jpg">
-					<span>Cars Genetic Algorithm</span>				
-				</a>
+
+			<div class="col-sm" style="margin-top: 5%;">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="p5.js\autonomous-cars-genetic-algorithm\demo.png">
+					<div class="card-body">
+						<h5 class="card-title">Autonomous Cars</h5>
+						<p class="card-text"> <a href="https://en.wikipedia.org/wiki/Genetic_algorithm" target="_blank">Autonomous cars using genetic algorithm</a> </p>
+						<a href="./p5.js/autonomous-cars-genetic-algorithm/index.html" target="_blank" class="btn btn-primary">Run it!</a>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="gallery row">		
-			<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-				<a href="p5.js\Factrals\ChaosGame\index.html"> 
-					<img class="responsive-img" src="p5.js\Factrals\ChaosGame\demo.jpg">
-					<span>Factrals - Chaos Game</span>				
-				</a>
+		<div class="row">
+			<div class="col-sm" style="margin-top: 5%;">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="p5.js\perlin-noise\demo.png">
+					<div class="card-body">
+						<h5 class="card-title">Perlin Noise</h5>
+						<p class="card-text"> <a href="https://en.wikipedia.org/wiki/Perlin_noise" target="_blank">Simple Perlin Noise Visualization</a> </p>
+						<a href="./p5.js/perlin-noise/PerlinNoise.html" target="_blank" class="btn btn-primary">Run it!</a>
+					</div>
+				</div>
 			</div>
-			
-			<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-				<a href="p5.js\Factrals\Tree2D\index.html"> 
-					<img class="responsive-img" src="p5.js\Factrals\Tree2D\demo.jpg">
-					<span>Factral Tree 2D</span>				
-				</a>
+
+			<div class="col-sm" style="margin-top: 5%;">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="p5.js\fractals\2d-tree\demo.png">
+					<div class="card-body">
+						<h5 class="card-title">2D Tree Fractal</h5>
+						<p class="card-text"> <a href="https://en.wikipedia.org/wiki/Fractal" target="_blank">A new 2D Fractal Tree is generated on reload the page</a> </p>
+						<a href="./p5.js/fractals/2d-tree/index.html" target="_blank" class="btn btn-primary">Run it!</a>
+					</div>
+				</div>
 			</div>
-			
-			<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-				<a href="p5.js\piApproximation\MonteCarloIntegration\MonteCarloIntegration.html"> 
-					<img class="responsive-img" src="p5.js\piApproximation\MonteCarloIntegration\demo.jpg">
-					<span>PI Approximation - Monte Carlo Integration</span>				
-				</a>
+
+			<div class="col-sm" style="margin-top: 5%;">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="p5.js\fractals\chaos-game\demo.png">
+					<div class="card-body">
+						<h5 class="card-title">Chaos Game Fractal</h5>
+						<p class="card-text"> <a href="https://en.wikipedia.org/wiki/Chaos_game" target="_blank">Chaos Game Fractal</a> </p>
+						<a href="./p5.js/fractals/chaos-game/index.html" target="_blank" class="btn btn-primary">Run it!</a>
+					</div>
+				</div>
 			</div>
 		</div>
-		
-		<div class="gallery row">
-			<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-				<a href="p5.js\SolarSystem\index.html"> 
-					<img class="responsive-img" src="p5.js\SolarSystem\demo.jpg">
-					<span>3D Solar System</span>				
-				</a>
-			</div>
-				 
-			<!--
-				<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-					<a href="p5.js\PaluDecrypter\index.html"> 
-						<img class="responsive-img" src="p5.js\PaluDecrypter\palu.jpg">
-						<span>Decifrando a Palu - Bin to Str</span>				
-					</a>
-				</div>
-			-->
-				<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-					<a href="visualizing-queue-and-stack/index.html"> 
-						<img class="responsive-img" src="visualizing-queue-and-stack/queue+stack.png">
-						<span>Visualizing queue and stack</span>				
-					</a>
-				</div>
 
-				<div class="col l4 m6 s12 gallery-item gallery-filter polygon">            
-					<a href="where-am-i/index.html"> 
-						<img class="responsive-img" src="where-am-i/where-am-i.png">
-						<span>Where am I?!</span>				
-					</a>
+		<div class="row">
+			<div class="col-sm" style="margin-top: 5%;">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="p5.js\autonomous-ants\demo.png">
+					<div class="card-body">
+						<h5 class="card-title">Autonomous Ants</h5>
+						<p class="card-text">The ants will look for food and return home until they starve to death.</p>
+						<a href="./p5.js/autonomous-ants/index.html" target="_blank" class="btn btn-primary">Run it!</a>
+					</div>
 				</div>
 			</div>
-		  
-        </div>
-      </div>
+		</div>
+
     </div> 
   </body>
 </html>
+
+
+
+
+
+  <!--
+				<a href="p5.js\Ants\index.html"> 
+				<img class="responsive-img" src="p5.js\Ants\demo.jpg">
+			
+				<a href="p5.js\CarsGA\index.html"> 
+					<img class="responsive-img" src="p5.js\CarsGA\demo.jpg">
+					<span>Cars Genetic Algorithm</span>				
+
+				<a href="p5.js\Factrals\ChaosGame\index.html"> 
+					<img class="responsive-img" src="p5.js\Factrals\ChaosGame\demo.jpg">
+					<span>Factrals - Chaos Game</span>				
+
+				<a href="p5.js\Factrals\Tree2D\index.html"> 
+					<img class="responsive-img" src="p5.js\Factrals\Tree2D\demo.jpg">
+					<span>Factral Tree 2D</span>				
+			-->

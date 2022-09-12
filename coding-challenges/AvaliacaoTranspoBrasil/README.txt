@@ -1,1 +1,0 @@
-Avaliação feita para transpoBrasil por Djonathan Krause 2018.
